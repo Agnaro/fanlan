@@ -4,5 +4,14 @@
   "main": "index.js",
   "repository": "https://github.com/Agnaro/fanlan.git",
   "author": "Eric Root",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node --inspect -r ts-node/register src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  }
 }
