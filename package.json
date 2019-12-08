@@ -1,0 +1,8 @@
+{
+  "name": "fanlan",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Agnaro/fanlan.git",
+  "author": "Eric Root",
+  "license": "MIT"
+}
