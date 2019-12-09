@@ -7,9 +7,14 @@
   "license": "MIT",
   "scripts": {
     "start": "node --inspect -r ts-node/register src/index.ts",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
     "nodemon": "^2.0.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
