@@ -5,7 +5,7 @@ import { Apply } from "./apply";
  * 2. A.of(x).ap(A.of(f)) is equivalent to A.of(f(x)) (homomorphism)
  * 3. A.of(y).ap(u) is equivalent to u.ap(A.of(f => f(y))) (interchange)
  */
-export interface Applicative extends Apply {
+export interface Applicative<A> extends Apply<A> {
   /**
    * fantasy-land/of :: Applicative f => a -> f a
    */

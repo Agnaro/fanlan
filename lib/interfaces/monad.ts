@@ -1,9 +1,12 @@
-import { Applicative, Chain, ADT } from "../interfaces";
+import { Applicative } from "./applicative";
+import { Chain } from "./chain";
 import { cons } from "../helpers/helpers";
 
-export class Monad<T> implements Applicative, Chain<T>, ADT {
-  value: any;
-  inspect: () => string;
+/**
+ * 1. M.of(a).chain(f) is equivalent to f(a) (left identity)
+ * 2. m.chain(M.of) is equivalent to m (right identity)
+ */
+export class Monad<T> implements Applicative<T>, Chain<T> {
   of: () => {};
   ap: () => {};
   map: () => {};

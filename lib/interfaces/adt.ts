@@ -1,7 +1,7 @@
 /**
  * Base type for all Algebraic Data Structures
  */
-export interface ADT {
-  value: any;
+export interface ADT<T> {
+  value: T;
   inspect: () => string;
 }
