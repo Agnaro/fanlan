@@ -8,5 +8,5 @@ export interface Functor<A> {
   /**
    * fantasy-land/map :: Functor f => f a ~> (a -> b) -> f b
    */
-  map<B>(fn: Func<A, B>): ThisType<B>;
+  map<B>(fn: Func<A, B>): Functor<B>;
 }

@@ -6,7 +6,7 @@ export class Identity<A> implements ADT<A>, Monad<A> {
   inspect = defaultInspect("Identity", this.value);
   of: (a: A) => Applicative<A>;
   ap: <B extends Apply<any>>(fn: Func<A, B>) => Apply<B>;
-  map<B>(fn: Func<A, B>): ThisType<B> {
+  map<B>(fn: Func<A, B>): Identity<B> {
     return identity<B>(fn(this.value));
   }
   chain: <B extends Chain<any>>(fn: Func<A, B>) => B;

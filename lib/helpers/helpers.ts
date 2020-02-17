@@ -27,10 +27,20 @@ export function doBlock<M>(
 
 export const defaultInspect = <A>(label: string, a: A) => (): string => {
   let str: string;
-  try {
-    str = (a as any).inspect();
-  } catch (error) {
-    str = a.toString();
+  switch (a) {
+    case null:
+      str = "null";
+      break;
+    case undefined:
+      str = "undefined";
+      break;
+    default:
+      if ((a as any).inspect) {
+        str = (a as any).inspect();
+      } else {
+        str = a.toString();
+      }
+      break;
   }
   return `${label}(${str})`;
 };
