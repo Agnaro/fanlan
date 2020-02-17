@@ -9,5 +9,5 @@ export interface Applicative<A> extends Apply<A> {
   /**
    * fantasy-land/of :: Applicative f => a -> f a
    */
-  of: () => {};
+  of: (a: A) => Applicative<A>;
 }

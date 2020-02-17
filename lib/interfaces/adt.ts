@@ -3,5 +3,5 @@
  */
 export interface ADT<T> {
   value: T;
-  inspect: () => string;
+  inspect(): string;
 }

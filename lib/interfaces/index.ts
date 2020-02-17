@@ -23,3 +23,4 @@ export * from "./extend";
 export * from "./comonad";
 export * from "./bifunctor";
 export * from "./profunctor";
+export * from "./types";
