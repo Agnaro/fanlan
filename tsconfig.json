@@ -4,10 +4,8 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["ESNext", "DOM"],
-    // These files help for debugging. tsconfig.prod.json will disable this feature for production.
     "sourceMap": true,
-    // Place output in ./lib where RPM packaging can find it
-    // TODO - Standardize all projects to use "dist" or "lib" instead of alternating between the two.
     "outDir": "./dist"
-  }
+  },
+  "include": ["./lib"]
 }
