@@ -11,3 +11,7 @@ export interface Setoid {
    */
   equals: (b: Setoid) => boolean;
 }
+
+export function isASetoid(s: any): s is Setoid {
+  return typeof s.equals === "function";
+}

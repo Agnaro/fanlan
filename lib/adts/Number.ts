@@ -1,17 +1,22 @@
-import { Setoid } from "../interfaces/interfaces";
+import { Setoid, ADT } from "../interfaces/";
 
-class Num implements Setoid {
+export class Number implements ADT<number>, Setoid {
+  value: number;
   public inspect(): string {
-    return `Num(${this.x})`;
+    return `Num(${this.value})`;
   }
-  public x: number;
+
   constructor(val: number) {
-    this.x = val;
+    this.value = val;
   }
   /**
    * equals
    */
-  public equals(a: Num) {
-    return this.x === a.x;
+  public equals(a: Number) {
+    return this.value === a.value;
   }
+}
+
+export function number(a: number): Number {
+  return new Number(a);
 }
