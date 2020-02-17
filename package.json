@@ -21,5 +21,14 @@
   "dependencies": {
     "@types/ramda": "^0.26.41",
     "ramda": "^0.27.0"
+  },
+  "mocha": {
+    "require": [
+      "ts-node/register"
+    ],
+    "extension": [
+      "ts"
+    ],
+    "spec": "test\\**\\*.spec.ts"
   }
 }
