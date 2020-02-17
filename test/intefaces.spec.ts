@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Setoid } from "../src/interfaces";
+import { Setoid } from "../lib/interfaces";
 
 describe("#Setoid", () => {
   class Num implements Setoid {
@@ -29,15 +29,15 @@ describe("#Setoid", () => {
     expect(a.equals(c)).to.eq(c.equals(a));
   });
   it("transitive", () => {
-      const testTransitivity = (a, b, c) => {
-    if (a.equals(b) && b.equals(c)) {
-      expect(a.equals(c)).to.be.true;
-    }
-  };
+    const testTransitivity = (a, b, c) => {
+      if (a.equals(b) && b.equals(c)) {
+        expect(a.equals(c)).to.be.true;
+      }
+    };
     const a = new Num(3);
     const b = new Num(3);
     const c = new Num(3);
 
-    testTransitivity(a,b,c);
+    testTransitivity(a, b, c);
   });
 });
