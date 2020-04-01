@@ -1,8 +1,8 @@
 import { Setoid } from ".";
 
-export interface Ord extends Setoid {
+export interface Ord<T> extends Setoid<T> {
     /**
      * fantasy-land/lte :: Ord a => a ~> a -> Boolean
      */
-    lte: (b:Ord) => boolean;
+    lte: (b: Ord<T>) => boolean;
 }

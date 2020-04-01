@@ -1,6 +1,6 @@
 import { Apply } from ".";
 
-export interface Applicative<T> extends Apply {
+export interface Applicative<T> extends Apply<T> {
     /**
      * fantasy-land/of :: Applicative f => a -> f a
      */

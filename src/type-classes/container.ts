@@ -1,5 +1,5 @@
 
 export interface Container {
-    x:any;
+    x: any;
     inspect: () => string;
 }
