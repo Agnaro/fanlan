@@ -48,18 +48,18 @@ export interface Apply extends Functor {
     ap: () => {}
 }
 
-export interface Applicative extends Apply {
+export interface Applicative<T> extends Apply {
     /**
      * fantasy-land/of :: Applicative f => a -> f a
      */
-    of: () => {}
+    of(val: T): Applicative<T>
 }
 
-export interface Chain<M> extends Applicative {
+export interface Chain<T> extends Applicative<T> {
     /**
      * fantasy-land/chain :: Chain m => m a ~> (a -> m b) -> m b
      */
-    chain: <R extends Chain<M>>(fn:(val:M)=>R) => R;
+    chain<R extends Chain<T>>(fn:(val:T)=>R): Chain<T>;
 }
 
-export interface Monad<T> extends Applicative, Chain<T> {}
+export interface Monad<T> extends Applicative<T>, Chain<T> {}
