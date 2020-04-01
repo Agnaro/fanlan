@@ -61,3 +61,5 @@ export interface Chain<M> extends Applicative {
      */
     chain: <R extends Chain<M>>(fn:(val:M)=>R) => R;
 }
+
+export interface Monad<T> extends Applicative, Chain<T> {}
