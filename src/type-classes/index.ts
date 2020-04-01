@@ -1,3 +1,4 @@
+export * from "./alt"
 export * from "./applicative";
 export * from "./apply";
 export * from "./category";
