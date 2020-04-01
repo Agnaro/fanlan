@@ -6,7 +6,7 @@ export interface Container {
 
 // find some what to force that you can only compare against the same type
 // not other Setoids
-export interface Setoid extends Container {
+export interface Setoid {
     /**
      * fantasy-land/equals :: Setoid a => a ~> a -> Boolean
      */
@@ -20,7 +20,7 @@ export interface Ord extends Setoid {
     lte: (b:Ord) => boolean;
 }
 
-export interface Semigroupoid extends Container {
+export interface Semigroupoid {
     /**
      * fantasy-land/compose :: Semigroupoid c => c i j ~> c j k -> c i k
      */
