@@ -34,6 +34,13 @@ export interface Category extends Semigroupoid {
     id: () => {}
 }
 
+export interface Semigroup {
+    /**
+     * fantasy-land/concat :: Semigroup a => a ~> a -> a
+     */
+    concat: () => {}
+}
+
 export interface Functor {
     /**
      * fantasy-land/map :: Functor f => f a ~> (a -> b) -> f b
@@ -52,14 +59,14 @@ export interface Applicative<T> extends Apply {
     /**
      * fantasy-land/of :: Applicative f => a -> f a
      */
-    of(val: T): Applicative<T>
+    of: (val: T) => Applicative<T>
 }
 
 export interface Chain<T> extends Applicative<T> {
     /**
      * fantasy-land/chain :: Chain m => m a ~> (a -> m b) -> m b
      */
-    chain<R extends Chain<T>>(fn:(val:T)=>R): Chain<T>;
+    chain: <R extends Chain<T>>(fn:(val:T)=>R)=> Chain<T>
 }
 
 export interface Monad<T> extends Applicative<T>, Chain<T> {}
