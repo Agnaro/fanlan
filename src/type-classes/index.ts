@@ -3,6 +3,7 @@ export * from "./apply";
 export * from "./category";
 export * from "./chain";
 export * from "./container";
+export * from "./contravariant";
 export * from "./filterable";
 export * from "./functor";
 export * from "./group";
