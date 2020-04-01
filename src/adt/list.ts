@@ -1,7 +1,7 @@
 // Apply
 // apply :: forall a b. f (a -> b) -> f a -> f b
 
-import { Monad, Chain, Container } from "./type-classes";
+import { Monad, Chain, Container, Semigroupoid, Semigroup } from "../type-classes";
 
 // ap :: Array (a -> b) -> Array a -> Array b
 function ap<A,B>(
@@ -23,20 +23,23 @@ function ap<A,B>(
     return [val]
   }
 
-  export class List<T> implements Container, Monad<T> {
+  export class List<T> implements Container, Monad<T>, Semigroup<T> {
     x: T[];
     
-    constructor(val?: T) {
-      this.x = val ? [val] : [];
+    constructor(...val: T[]) {
+      this.x = val ? val : [];
     }
 
-    inspect() {
+    inspect(): string {
       return `List ${this.x}`
     };
-    of(val: T) {
+    of(val: T): List<T> {
       return new List(val);
     };
     ap: () => {};
     map: () => {};
     chain: <R extends Chain<T>>(fn: (val: T) => R) => R;
+    concat(val: List<T>): List<T> {
+      return new List(...this.x.concat(val.x))
+    }
   }
