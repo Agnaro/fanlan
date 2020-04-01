@@ -1,7 +1,7 @@
 // Apply
 // apply :: forall a b. f (a -> b) -> f a -> f b
 
-import { Monad, Chain, Container, Applicative } from "./interfaces";
+import { Monad, Chain, Container } from "./type-classes";
 
 // ap :: Array (a -> b) -> Array a -> Array b
 function ap<A,B>(
@@ -23,7 +23,7 @@ function ap<A,B>(
     return [val]
   }
 
-  export class List<T> implements Container, Applicative<T> {
+  export class List<T> implements Container, Monad<T> {
     x: T[];
     
     constructor(val?: T) {

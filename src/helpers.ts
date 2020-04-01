@@ -1,4 +1,4 @@
-import { Monad } from "./interfaces";
+import { Monad } from "./type-classes";
 
 /**
  * Breaks an array into its head and tail

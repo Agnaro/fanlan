@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { Setoid } from "../src/interfaces";
+import { Setoid } from "../src/type-classes";
 
 describe("#Setoid", () => {
   class Num implements Setoid {
