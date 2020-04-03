@@ -1,7 +1,6 @@
 {
   "name": "fanlan",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
   "repository": "https://github.com/Agnaro/fanlan.git",
   "author": "Eric Root",
   "license": "MIT",
@@ -18,5 +17,18 @@
     "nodemon": "^2.0.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "@types/ramda": "^0.26.41",
+    "ramda": "^0.27.0"
+  },
+  "mocha": {
+    "require": [
+      "ts-node/register"
+    ],
+    "extension": [
+      "ts"
+    ],
+    "spec": "test\\**\\*.spec.ts"
   }
 }
