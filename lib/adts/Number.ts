@@ -1,6 +1,8 @@
-import { Setoid, ADT } from "../interfaces/";
+import { ADT } from "./adt";
+import { Setoid } from "./type-classes";
 
-export class Number implements ADT<number>, Setoid {
+
+export class Number implements ADT, Setoid<number> {
   value: number;
   public inspect(): string {
     return `Num(${this.value})`;

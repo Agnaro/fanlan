@@ -1,7 +1,8 @@
-import { ADT, Monad, Chain, Applicative, Apply, Func } from "../interfaces";
 import { defaultInspect } from "../helpers/helpers";
+import { ADT } from "./adt";
+import { Monad, Applicative, Apply, Chain, Func } from "./type-classes";
 
-export class Identity<A> implements ADT<A>, Monad<A> {
+export class Identity<A> implements ADT, Monad<A> {
   value: A;
   inspect = defaultInspect("Identity", this.value);
   of: (a: A) => Applicative<A>;

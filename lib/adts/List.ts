@@ -1,8 +1,9 @@
 // Apply
 // apply :: forall a b. f (a -> b) -> f a -> f b
 
-import { Monad, Chain, Container } from "../type-classes";
-import { Monoid } from "../type-classes/monoid";
+import { Monad, Chain } from "./type-classes";
+import { Monoid } from "./type-classes/monoid";
+import { ADT } from "./adt";
 
 // ap :: Array (a -> b) -> Array a -> Array b
 function ap<A,B>(
@@ -18,15 +19,15 @@ function ap<A,B>(
     return out;
   }
 
-  export class List<T> implements Container, Monad<T>, Monoid<T> {
-    x: T[];
+  export class List<T> implements ADT, Monad<T>, Monoid<T> {
+    value: T[];
     
     constructor(...val: T[]) {
-      this.x = val ? val : [];
+      this.value = val ? val : [];
     }
 
     inspect(): string {
-      return `List ${this.x}`
+      return `List ${this.value}`
     };
     of(val: T): List<T> {
       return new List(val);
@@ -35,7 +36,7 @@ function ap<A,B>(
     map: () => {};
     chain: <R extends Chain<T>>(fn: (val: T) => R) => R;
     concat(val: List<T>): List<T> {
-      return new List(...this.x.concat(val.x))
+      return new List(...this.value.concat(val.value))
     }
     empty(): List<T> {
       return new List();

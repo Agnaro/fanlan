@@ -1,6 +1,7 @@
-import { ADT, Applicative } from "../interfaces";
+import { ADT } from "./adt";
+import { Applicative } from "./type-classes";
 
-export class Compose<T> implements ADT<T>, Applicative<T> {
+export class Compose<T> implements ADT, Applicative<T> {
   value: T;
   inspect: () => string;
   of: () => {};
