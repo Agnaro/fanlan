@@ -1,8 +1,12 @@
 import { Monoid } from "./monoid";
 
-export interface Group<T> extends Monoid<T> {
+/**
+ * 1. g.concat(g.invert()) is equivalent to g.constructor.empty() (right inverse)
+ * 2. g.invert().concat(g) is equivalent to g.constructor.empty() (left inverse)
+ */
+export interface Group<G> extends Monoid<G> {
     /**
      * fantasy-land/invert :: Group g => g ~> () -> g
      */
-    invert: () => Group<T>
+    invert: () => Group<G>
 }

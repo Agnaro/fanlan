@@ -1,8 +1,12 @@
 import { Applicative } from ".";
+import { Func } from "./types";
 
-export interface Chain<T> extends Applicative<T> {
+/**
+ * 1. m.chain(f).chain(g) is equivalent to m.chain(x => f(x).chain(g)) (associativity)
+ */
+export interface Chain<A> extends Applicative<A> {
     /**
      * fantasy-land/chain :: Chain m => m a ~> (a -> m b) -> m b
      */
-    chain: <R extends Chain<T>>(fn:(val:T)=>R)=> Chain<T>
+    chain: <B extends Chain<A>>(fn: Func<A, B>)=> Chain<A>
 }

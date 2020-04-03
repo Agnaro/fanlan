@@ -1,6 +1,10 @@
-export interface Contravariant<T> {
+/**
+ * 1. u.contramap(a => a) is equivalent to u (identity)
+ * 2. u.contramap(x => f(g(x))) is equivalent to u.contramap(f).contramap(g) (composition)
+ */
+export interface Contravariant<A> {
     /**
      * fantasy-land/contramap :: Contravariant f => f a ~> (b -> a) -> f b
      */
-    contramap: <R>(fn: (a: R)=>T) => Contravariant<R>
+    contramap: <B>(fn: (a: B)=>A) => Contravariant<B>
 }
